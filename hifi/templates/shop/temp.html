@@ -1,0 +1,118 @@
+{% extends './basic.html' %}
+{% load static %}
+{% block title %}| Index {% endblock %}
+{% block head %}
+
+
+{% endblock %}
+{% block style %}
+<style>
+
+
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+
+	                        {% if profile.image %}
+							<a href="{{profile.image.url}}"><img src="{{profile.image.url}}" class="alignleft img-circle img-thumbnail my-0" alt="Avatar" style="max-width: 84px;"></a>
+							{% else %}
+							<img src="{% static 'images/avatar.jpg' %}" class="alignleft img-circle img-thumbnail my-0" alt="Avatar" style="max-width: 84px;">
+							{% endif %}
+							<div class="heading-block border-0">
+								<h3>{{request.user.first_name}}</h3>
+								<span>{{request.user.last_name}}</span>
+							</div>
+							<form class="row" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+								<div class="alignleft mt-0">
+									<a href="#" onclick="upload()"><i class="icon-user-edit">Edit</i></a>
+									<br>
+									<input type="file" name="image" class="file-loading hide" id="image" data-show-preview="false" accept="image/x-png,image/gif,image/jpeg">
+									<button type="submit" id="update" class="btn btn-secondary hide">Update</button>
+								</div>
+
+
+								<div class="clear"></div>
+
+
+
+								<div class="row clearfix mt-3">
+								<h3>Personal Information </h3>&nbsp&nbsp<a href="#"onclick="edit()"><p id="change">Edit</p></a>
+
+								<div class="col-lg-12">
+
+									<div class="tabs tabs-alt clearfix" id="tabs-profile">
+
+										<div class="row">
+											<div class="col-lg-9">
+
+													<div class="form-process">
+														<div class="css3-spinner">
+															<div class="css3-spinner-scaler"></div>
+														</div>
+													</div>
+													<div class="col-12 form-group">
+														<label>First Name:</label>
+														<input type="text" name="fname" class="form-control disabled" disabled="disabled" required value="{{user.first_name}}"  placeholder="First Name">
+													</div>
+													<div class="col-12 form-group">
+														<label>Last Name:</label>
+														<input type="text" name="lname" class="form-control disabled" disabled="disabled" value="{{user.last_name}}"  placeholder="Last Name">
+													</div>
+													<div class="col-12 form-group">
+														<label>Email:</label>
+														<input type="email" name="jobs-application-email" disabled  class="form-control" value="{{user.email}}" placeholder="Enter your Email">
+													</div>
+
+													<div class="col-12 form-group">
+														<div class="row">
+															<div class="col-md-12 form-group">
+																<label>Phone:</label>
+																<input type="text" name="phone" disabled="disabled"  class="form-control disabled" value="{{profile.mobile}}" placeholder="Enter your Phone">
+															</div>
+
+															<div class="w-100"></div>
+
+															<div class="col-md-6 form-group">
+																<label>Date Of Birth:</label>
+																<input type="date" class="form-control dobpicker disabled" name="dob" disabled="disabled"  value="" placeholder="MM/DD/YYYY">
+															</div>
+															<div class="col-md-6 form-group">
+																<label>Gender:</label>
+
+																<select class="form-control disabled" name="gender" disabled="disabled">
+																	<option value="" disabled selected>-- Select One --</option>
+																	<option value="M">Male</option>
+																	<option value="F">Female</option>
+																</select>
+															</div>
+
+														</div>
+													</div>
+
+													<div class="col-12">
+														<button type="submit" id="sub" class="btn btn-secondary hide">Save</button>
+													</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+							</form>
+
+
+{% endblock %}
+
+{% block js %}
+
+
+
+{% endblock %}

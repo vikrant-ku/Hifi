@@ -1,0 +1,519 @@
+{% extends './basic.html' %}
+{% load static %}
+{% block title %}| Store {% endblock %}
+{% block head %} {% endblock %}
+{% block style %} {% endblock %}
+
+{% block body %}
+
+	<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark page-title-center" style="background-image: url({% static 'demos/store/images/men/page-title.jpg' %}); background-size: cover; padding: 170px 0 100px;" data-bottom-top="background-position: 50% 200px;" data-top-bottom="background-position: 50% -200px;">
+
+			<div class="container clearfix">
+				<h1>Men Collections</h1>
+				<span>A Fresh Collections Of Men</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Men</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap pb-0">
+
+
+
+				<div class="container-fluid topmargin">
+					<div class="row">
+						<div class="col-md-2 sticky-sidebar-wrap">
+							<ul class="list-unstyled items-nav sticky-sidebar shop-filter" data-container="#shop">
+								<li><a href="#" class="text-dark font-weight-semibold" data-filter="*">All Collections</a></li>
+								<li class="no-divider"><a href="#" class="text-dark font-weight-semibold" data-filter=".sf-new">New Arrivals</a></li>
+								<li><hr></li>
+								<li><a href="#" data-filter=".sf-jeans">Jeans</a></li>
+								<li><a href="#" data-filter=".sf-t-shirts">T-Shirts</a></li>
+								<li><a href="#" data-filter=".sf-watches">Watches</a></li>
+								<li><a href="#" data-filter=".sf-shoes">Shoes</a></li>
+								<li><a href="#" data-filter=".sf-sportswear">Sportswear</a></li>
+								<li><a href="#" data-filter=".sf-shorts">Shorts</a></li>
+								<li><a href="#" data-filter=".sf-trousers">Trousers</a></li>
+								<li><a href="#" data-filter=".sf-jackets">Jackets</a></li>
+								<li><a href="#" data-filter=".sf-sweaters">Sweaters</a></li>
+							</ul>
+
+							<hr>
+
+							<div>
+								<h5 class="ls0 text-muted">Select Price:</h5>
+								<input class="range_23" />
+							</div>
+
+						</div>
+
+						<div class="col-md-10">
+							<div id="shop" class="row shop grid-container" data-layout="fitRows">
+
+								<!-- Shop Item 1
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-shoes sf-sportswear sf-new">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-pagi="false" data-speed="400" data-pause="200000">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/product/1-1.jpg' %}" alt="Black Shoe"></a>
+														</div>
+														<div class="slide">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/product/1-2.jpg' %}" alt="Black Shoe"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Black Sports Shoe</a></h3>
+												<span><a href="#">Nike</a></span>
+											</div>
+											<div class="product-price"><ins>$21.49</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 2
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-shoes sf-sportswear">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-pagi="false" data-speed="400" data-pause="200000">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/2-1.jpg' %}" alt="Sports Shoe"></a>
+														</div>
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/2-2.jpg' %}" alt="Sports Shoe"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Sports Shoe</a></h3>
+												<span><a href="#">Nike</a></span>
+											</div>
+											<div class="product-price"><ins>$33.49</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 3
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-jackets sf-new">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-pagi="false" data-speed="400" data-pause="200000">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/3-1.jpg' %}" alt="Jackets"></a>
+														</div>
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/3-2.jpg' %}" alt="Jackets"></a>
+														</div>
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/3-3.jpg' %}" alt="Jackets"></a>
+														</div>
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/3-4.jpg' %}" alt="Jackets"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Men Black Jackets</a></h3>
+												<span><a href="#">Jackets</a></span>
+											</div>
+											<div class="product-price"><ins>$51.49</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 4
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-t-shirts sf-new">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-pagi="false" data-speed="400" data-pause="200000">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/4-1.jpg' %}" alt="T-shirt"></a>
+														</div>
+														<div class="slide">
+															<a href="demo-store-product-single.html"><img src="{% static 'demos/store/images/product/4-2.jpg' %}" alt="T-shirt"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Roundneck T-shirt</a></h3>
+												<span><a href="#">T-shirt</a></span>
+											</div>
+											<div class="product-price"><ins>$17.49</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 5
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-t-shirts">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-pagi="false" data-speed="400" data-pause="200000">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/2.jpg' %}" alt="T-Shirts"></a>
+														</div>
+														<div class="slide">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/2-1.jpg' %}" alt="T-Shirts"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Grey T-Shirt</a></h3>
+												<span><a href="#">T-Shirt</a></span>
+											</div>
+											<div class="product-price"><ins>$11.49</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 6
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-shoes sf-sportswear sf-new">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-pagi="false" data-speed="400" data-pause="200000">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/product/6-1.jpg' %}" alt="Shoes"></a>
+														</div>
+														<div class="slide">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/product/6-2.jpg' %}" alt="Shoes"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Men White Escaper Sports Shoes</a></h3>
+												<span><a href="#">Sports Shoes</a></span>
+											</div>
+											<div class="product-price"><ins>$29.49</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 7
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-watches">
+									<div class="product">
+										<div class="product-image position-relative">
+											<div class="fslider" data-arrows="true" data-pagi="false" data-speed="400" data-pause="6000" data-thumbs="true">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/1.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/1.jpg' %}" alt="Watch"></a>
+														</div>
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/1-1.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/1-1.jpg' %}" alt="Watch"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Rounded Watch</a></h3>
+												<span><a href="#">Watches</a></span>
+											</div>
+											<div class="product-price"><ins>$78</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 8
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-jeans sf-new">
+									<div class="product">
+										<div class="product-image">
+											<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/product/8-1.jpg' %}" alt="Jeans"></a>
+											<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/product/8-2.jpg' %}" alt="Jeans"></a>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Navi Blue Jeans</a></h3>
+												<span><a href="#">Jeans</a></span>
+											</div>
+											<div class="product-price"><ins>$69</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 9
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-shorts sf-sportswear">
+									<div class="product">
+										<div class="product-image">
+											<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/6.jpg' %}" alt="Shorts"></a>
+											<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/6-1.jpg' %}" alt="Shorts"></a>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Jogging Shorts</a></h3>
+												<span><a href="#">Shorts</a></span>
+											</div>
+											<div class="product-price"><ins>$9.99</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 10
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-sweaters">
+									<div class="product">
+										<div class="product-image">
+											<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/3.jpg' {% static '%}" alt="Sweaters"></a>
+											<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/3.jpg' {% static '%}" alt="Sweaters"></a>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Woolen Sweaters</a></h3>
+												<span><a href="#">Sweaters</a></span>
+											</div>
+											<div class="product-price"><ins>$71</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 11
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-trousers sf-new">
+									<div class="product">
+										<div class="product-image">
+											<div class="fslider" data-arrows="false" data-pagi="false" data-speed="400" data-pause="6000" data-thumbs="true">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/4.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/4.jpg' %}" alt="Trouser"></a>
+														</div>
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/4-1.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/4-1.jpg' %}" alt="Trouser"></a>
+														</div>
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/4-2.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/4-2.jpg' %}" alt="Trouser"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Light Blue Trouser</a></h3>
+												<span><a href="#">Trouser</a></span>
+											</div>
+											<div class="product-price"><ins>$19.99</ins></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Shop Item 12
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4 sf-shorts sf-new">
+									<div class="product">
+										<div class="product-image">
+											<div class="fslider" data-arrows="false" data-pagi="false" data-speed="400" data-pause="6000" data-thumbs="true">
+												<div class="flexslider">
+													<div class="slider-wrap">
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/5.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/5.jpg' %}" alt="Shorts"></a>
+														</div>
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/5-1.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/5-1.jpg' %}" alt="Shorts"></a>
+														</div>
+														<div class="slide" data-thumb="{% static 'demos/store/images/men/items/5-2.jpg' %}">
+															<a href="{% url 'product_view' %}"><img src="{% static 'demos/store/images/men/items/5-2.jpg' %}" alt="Shorts"></a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="cart-btn button button-white button-light"><i class="icon-line-plus"></i>Add to Cart</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">Shorts - Pack of 3</a></h3>
+												<span><a href="#">Shorts</a></span>
+											</div>
+											<div class="product-price"><ins>$99</ins></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="section mb-0 py-6">
+					<div class="container-fluid">
+						<div class="row justify-content-center m-auto" style="max-width: 1000px;">
+							<div class="col-md-7">
+								<p class="h6 mb-0 text-muted">Conveniently network effective total linkage via intermandated opportunities. Distinctively <a href="mailto:noreply@canvas.com"><u>noreply@canvas.com</u></a> premium products.</p>
+							</div>
+							<div class="col-md-5 mt-3 mt-md-0">
+								<h2 class="h1 font-weight-bold ls--1 color"><a href="tel:09876543211">(+0) 9876 543210</a></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section><!-- #content end -->
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+		$(document).ready(changeHeaderColor);
+		$(window).on('resize',changeHeaderColor);
+
+		function changeHeaderColor(){
+			if (jQuery(window).width() > 991.98) {
+				jQuery( "#header" ).hover(
+					function() {
+						if (!$(this).hasClass("sticky-header")) {
+							$( this ).addClass( "hover-light" ).removeClass( "dark" );
+							SEMICOLON.header.logo();
+						}
+						$( "#wrapper" ).addClass( "header-overlay" );
+					}, function() {
+						if (!$(this).hasClass("sticky-header")) {
+							$( this ).removeClass( "hover-light" ).addClass( "dark" );
+							SEMICOLON.header.logo();
+						}
+						$( "#wrapper" ).removeClass( "header-overlay" );
+					}
+				);
+			}
+		};
+
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 2000 && $("#modal-subscribe").attr("displayed") === "false") {
+				$('#modal-subscribe').modal('show');
+				$("#modal-subscribe").attr("displayed", "true");
+			}
+		});
+
+		jQuery('#modal-subscribe-form').on( 'formSubmitSuccess', function(){
+			$("#modal-subscribe").addClass("fadeOutDown");
+			setTimeout(function() { $('#modal-subscribe').modal('hide'); }, 400);
+			$("#modal-subscribe").attr("displayed", "false");
+		});
+
+		var priceRangefrom = 0,
+			priceRangeto = 0,
+			$container = null;
+
+		jQuery(window).on( 'load', function(){
+
+			$container = $('#shop');
+
+			$container.isotope({ transitionDuration: '0.65s' });
+
+			$('.shop-filter a').click(function(){
+				$('.shop-filter li').removeClass('activeFilter');
+				$(this).parent('li').addClass('activeFilter');
+				var selector = $(this).attr('data-filter');
+				$container.isotope({ filter: selector });
+				return false;
+			});
+
+			$(window).resize(function() {
+				$container.isotope('layout');
+			});
+
+		});
+
+		jQuery(document).ready( function($){
+
+			$(".range_23").ionRangeSlider({
+				type: "double",
+				min: 9.99,
+				max: 99.99,
+				from: 9.99,
+				to: 99.99,
+				prefix: '$',
+				hide_min_max: true,
+				hide_from_to: false,
+				grid: false,
+				onStart: function (data) {
+					priceRangefrom = data.from;
+					priceRangeto = data.to;
+				},
+				onFinish: function (data) {
+					priceRangefrom = data.from;
+					priceRangeto = data.to;
+
+					$container.isotope({
+						filter: function() {
+
+							if( $(this).find('.product-price').find('ins').length > 0 ) {
+								var price = $(this).find('.product-price ins').text();
+							} else {
+								var price = $(this).find('.product-price').text();
+							}
+
+							priceNum = price.split("$");
+
+							return ( priceRangefrom <= priceNum[1] && priceRangeto >= priceNum[1] );
+						}
+					});
+
+				}
+			});
+
+		});
+
+
+	</script>
+{% endblock %}

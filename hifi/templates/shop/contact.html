@@ -1,0 +1,167 @@
+{% extends './basic.html' %}
+{% load static %}
+{% block title %}| Contact Us {% endblock %}
+{% block head %}
+<!-- Landing Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'demos/landing/landing.css' %}" type="text/css" />
+
+	<!-- inTelInput start	-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" rel="stylesheet"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+	<!-- inTelInput end	-->
+
+
+{% endblock %}
+{% block style %}
+<style>
+
+
+@media only screen and (min-width: 790px) {
+	input#phone_number { width: 160%; }
+}
+@media only screen and (min-width: 760px) and (max-width: 790px){
+	input#phone_number { width: 145%; }
+}
+
+
+
+
+
+
+</style>
+{% endblock %}
+
+{% block body %}
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark page-title-center" style="background-image: url({% static 'demos/store/images/contact/page-title.jpg' %}); background-size: cover; padding: 170px 0 100px;" data-bottom-top="background-position: 50% 200px;" data-top-bottom="background-position: 50% -200px;">
+
+			<div class="container clearfix">
+				<h1>Get in Touch</h1>
+				<span>Contact Us</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap pb-0">
+				<div class="container">
+					<div class="row justify-content-between mb-4">
+						<div class="col-lg-4 col-md-6">
+							<h2 class="h1 font-weight-bold mb-4">HiFi Boutique</h2>
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, excepturi.</p>
+							<h4>
+								18 Kenmare Approach <br>Wollert Victoria VIC 3750<br>Australia
+							</h4>
+							<abbr title="Phone Number"><strong>Phone:</strong></abbr> (+61) 430 204 441<br>
+							<abbr title="Email Address"><strong>Email:</strong></abbr> meenumelbourne@hotmail.com<br>
+							<abbr title="Store"><strong>website:</strong></abbr> <a href="#"><u>www.hifi.com</u></a>
+							<div class="mt-4">
+								<a href="https://www.facebook.com/people/Hi-Fi-Hair-and-Beauty-Salon/100044223976918" target="_blank" class="social-icon si-small si-colored rounded-0 si-facebook" title="Facebook">
+									<i class="icon-facebook"></i>
+									<i class="icon-facebook"></i>
+								</a>
+
+								<a href="https://www.instagram.com/menurinku/?hl=en" target="_blank" class="social-icon si-small si-colored rounded-0 si-instagram" title="twitter">
+									<i class="icon-instagram"></i>
+									<i class="icon-instagram"></i>
+								</a>
+
+								<a href="#" class="social-icon si-small si-colored rounded-0 si-google" title="google">
+									<i class="icon-google"></i>
+									<i class="icon-google"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-7 col-md-6 mt-4 mt-md-0">
+							<img src="{% static 'demos/store/images/contact/1.jpg' %}" alt="image">
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="section bg-color" style="background-image: linear-gradient(to bottom, #e60c48 0%, #0a4bab 50%, #FFF 50%);">
+					<div class="container clearfix">
+						<div class="row mx-auto dotted-bg" style="max-width: 740px">
+							<div class="col-md-12">
+								<div class="center dark mb-5">
+									<i class="icon-line-help h1 "></i>
+									<h2 class="font-weight-bold mb-2">Need Help?</h2>
+									<p class="font-weight-normal mb-2 lead">Enthusiastically morph unique web-readiness via impactful platforms.</p>
+								</div>
+
+								<div class="card bg-white shadow-lg border-0">
+									<div class="card-body p-5">
+
+											<div class="form-result"></div>
+
+											<form class="row mb-0" id="landing-enquiry" action="{% url 'contact_us' %}" method="post" >{% csrf_token %}
+												<div class="form-process"></div>
+												<div class="col-12 form-group mb-4">
+													<label>Name:</label>
+													<input type="text" name="name" required class="form-control form-control-lg required" value="" placeholder="Full Name">
+												</div>
+												<div class="col-12 form-group mb-4">
+													<label>Email:</label>
+													<input type="email" name="email" required class="form-control form-control-lg required" value="" placeholder="Your Email">
+												</div>
+												<div class="col-12 form-group mb-4">
+													<label>Phone:</label><br>
+													<input type="tel" id="phone_number" name="phone" placeholder="Mobile Number" required class="form-control form-control-lg" />
+
+												</div>
+												<div class="col-12 form-group mb-4">
+													<label>Message:</label>
+													<textarea name="message" required class="form-control form-control-lg" cols="30" rows="5" placeholder="Please let us know how we can help you..."></textarea>
+												</div>
+												<div class="col-12 d-none">
+													<input type="text" id="landing-enquiry-botcheck" name="landing-enquiry-botcheck" value="" />
+												</div>
+												<div class="col-12">
+													<button type="submit"  class="btn btn-block text-white bg-color rounded-lg py-3 font-weight-semibold text-uppercase mt-2">Contact Us</button>
+												</div>
+											</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section><!-- #content end -->
+
+{% endblock %}
+
+{% block js %}
+
+<!-- inTelInput start	-->
+<script>
+
+var phone_number = window.intlTelInput(document.querySelector("#phone_number"), {
+  separateDialCode: true,
+  preferredCountries:["in"],
+  hiddenInput: "full",
+  utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+});
+
+$("form").submit(function() {
+  var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+$("input[name='phone']").val(full_number);
+});
+
+  </script>
+	<!-- inTelInput end	-->
+{% endblock %}
+
+
+
+

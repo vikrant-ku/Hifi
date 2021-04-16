@@ -1,0 +1,263 @@
+{% extends './basic.html' %}
+{% load static %}
+{% block title %}| Profile {% endblock %}
+{% block head %}
+
+
+
+{% endblock %}
+{% block style %}
+
+<style>
+
+.hide{
+	display: none;
+	}
+#change{
+margin-top: 8px;
+    color: red;
+}
+#option{
+	list-style-type: none;
+	position:absolute;
+}
+
+#hidden {
+	list-style-type: none;
+    background-color: #FFF;
+    padding: 10px;
+	display: none;
+
+}
+#hidden li{
+    margin: 5px 0px 5px 5px;
+    padding: 0px 18px 0px 4px;
+}
+
+#visible:hover #hidden {
+   display: block;
+    float: left;
+    box-shadow:	rgba(0,0,0,0.4)5px 5px;
+    border-radius: 8px;
+    border: solid 1px black;
+}
+
+
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+
+<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-parallax page-title-dark page-title-center" style="background-image: url({% static 'demos/store/images/men/page-title.jpg' %}); background-size: cover; padding: 170px 0 100px;" data-bottom-top="background-position: 50% 200px;" data-top-bottom="background-position: 50% -200px;">
+
+			<div class="container clearfix">
+				<h1>Profile</h1>
+
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">profile</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+
+		<!-- Content
+		============================================= -->
+		<section id="content" style=" background-color: #c7c7c7;" >
+			<div class="content-wrap">
+				<div class="container clearfix mt-6">
+
+					<div class="row clearfix">
+
+						<div class="col-md-9">
+
+							<div class="content-wrap bg-light">
+								<div class="container">
+
+
+									<div class="row justify-content-center">
+										<h3>Manage Addresses</h3>
+										<div class="col-lg-10 col-md-10">
+
+											<div class="card shadow-dm" id="addnew">
+
+												<div class="card-body p-5" >
+
+									<h4 class="ls4 center">UPDATE YOUR BILLING ADDRESS</h4>
+
+									<div class="divider divider-sm divider-center text-dark"><i class="icon-address-card1"></i></div>
+
+
+										<form class="mb-0" action="{% url 'addresses' %}/edit/{{billing.id}}" method="post">
+											{% csrf_token %}
+											<div class="row">
+
+												<div class="col-12">
+													<div class="row">
+														<div class="col-md-6 bottommargin-sm">
+															<label for="first-name">Name<small class="text-danger">*</small></label>
+															<input type="text" id="first-name" name="name" value="{{billing.name}}" class="form-control" required placeholder="Enter your First Name" />
+														</div>
+														<div class="col-md-6 bottommargin-sm">
+															<label for="last-name">Mobile Mumber<small class="text-danger">*</small></label>
+															<input type="text" id="last-name" name="mobile" value="{{billing.mobile}}" class="form-control" required placeholder="Enter your Mobile number" />
+														</div>
+													</div>
+												</div>
+
+
+												<div class="col-12">
+													<div class="row">
+														<div class="col-md-6 bottommargin-sm">
+															<label for="country">Country<small class="text-danger">*</small></label>
+															<select class="form-control" id="country" required name="country">
+																	<option value="{{billing.country}}" selected>{{billing.country}}</option>
+																	<option value="India">India</option>
+															</select>
+
+														</div>
+														<div class="col-md-6 bottommargin-sm">
+															<label for="state">State<small class="text-danger">*</small></label>
+															<input type="text" id="state" name="state" value="{{billing.state}}" class="form-control" required placeholder="Enter State" />
+<!--															<select class="form-control" id="state" name="state">-->
+<!--																	<option value="" disabled selected>&#45;&#45; Select State &#45;&#45;</option>-->
+<!--																	<option value="India">India</option>-->
+<!--																	<option value="India">India</option>-->
+<!--																	<option value="India">India</option>-->
+<!--															</select>-->
+
+														</div>
+
+													</div>
+												</div>
+
+												<div class="col-12">
+													<div class="row">
+
+														<div class="col-md-6 bottommargin-sm">
+															<label for="city">City/District/Town<small class="text-danger">*</small></label>
+															<input type="text" id="city" name="city" value="{{billing.city}}" required class="form-control" placeholder="City/District/Town" />
+														</div>
+														<div class="col-md-6 bottommargin-sm">
+															<label for="pin-code">Pin Code<small class="text-danger">*</small></label>
+															<input type="text" id="pin-code" name="pin_code" value="{{billing.pin}}" class="form-control" required placeholder="Pin Code" />
+														</div>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<div class="row">
+														<div class="col-md-12 bottommargin-sm">
+															<label for="locality">Locality<small class="text-danger">*</small></label>
+															<input type="text" id="locality" name="locality" value="{{billing.locality}}" class="form-control" required placeholder="Locality" />
+														</div>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<div class="row">
+														<div class="col-md-12 bottommargin-sm">
+															<label for="address">Address.<small class="text-danger">*</small></label>
+															<textarea  id="address" name="address" value="" rows="4" class="form-control" required placeholder="Address (Area and Street)">{{billing.address}}</textarea>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<div class="row">
+														<div class="col-md-6 bottommargin-sm">
+															<label for="landmark">Landmark</label>
+															<input type="text" id="landmark" name="landmark" value="{{billing.landmark}}" class="form-control" placeholder="Landmark" />
+														</div>
+														<div class="col-md-6 bottommargin-sm">
+															<label for="alt_mobile">Alternate Phone</label>
+															<input type="text" id="alt_mobile" name="alt_mobile" value="{{billing.alt_mobile}}" class="form-control" placeholder="Alternate Phone" />
+														</div>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<div class="row">
+														<div class="col-md-6 bottommargin-sm">
+															<label>Address Type<small class="text-danger">*</small></label><br>
+                                                            {% if billing.type == "H" %}
+															<input type="radio" required name="type" checked value="H">Home &nbsp
+															<input type="radio" required name="type" value="W">Work
+                                                            {% else %}
+                                                            <input type="radio" required name="type" value="H">Home &nbsp
+															<input type="radio" required name="type" checked  value="W">Work
+                                                            {% endif %}
+                                                        </div>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<button type="submit" class="btn btn-secondary  btn-lg">Save</button>
+												</div>
+
+											</div>
+
+										</form>
+
+									<a href="#myModal1" data-lightbox="inline" class="template-wedding-success-modal d-none"></a>
+									<div class="modal1 mfp-hide" id="myModal1">
+										<div class="block mx-auto" style="background-color: #FFF; max-width: 600px;">
+											<div class="clearfix" style="padding: 50px;">
+												<i class="icon-smile1 color display-4 mb-2"></i>
+												<h3 class="mb-3">Thank You.</h3>
+												<h5 class="lead font-weight-semibold ls1 text-uppercase my-4">Your RSVP has been Confirmed.</h5>
+												<p class="font-weight-normal mb-0">Thank you very much for attending our Wedding. If you need any other information from me then Please let me contact to <a href="mailto:no.reply@semicolonweb.com"><u>no.reply@semicolonweb.com</u></a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="w-100 line d-block d-md-none"></div>
+
+						<div class="col-md-3">
+
+							<div class="list-group">
+								<a href="{% url 'profile' %}" class="list-group-item list-group-item-action d-flex justify-content-between"><div>Profile</div><i class="icon-user"></i></a>
+								<a href="#" class="list-group-item list-group-item-action d-flex justify-content-between"><div>Servers</div><i class="icon-laptop2"></i></a>
+								<a href="#" class="list-group-item list-group-item-action d-flex justify-content-between"><div>Messages</div><i class="icon-envelope2"></i></a>
+								<a href="{% url 'addresses' %}" class="list-group-item list-group-item-action d-flex justify-content-between"><div>Billing</div><i class="icon-credit-cards"></i></a>
+								<a href="{% url 'Change_password' %}" class="list-group-item list-group-item-action d-flex justify-content-between"><div>Settings</div><i class="icon-cog"></i></a>
+								<a href="{% url 'logout' %}" class="list-group-item list-group-item-action d-flex justify-content-between"><div>Logout</div><i class="icon-line2-logout"></i></a>
+							</div>
+
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+
+
+</script>
+
+
+
+{% endblock %}

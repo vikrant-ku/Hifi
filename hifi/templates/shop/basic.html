@@ -1,0 +1,505 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="{% static 'css/ion.rangeslider.css' %}" type="text/css" />
+
+	<!-- Store Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/colors.php?color=222222' %}" type="text/css" /> <!-- Store Theme Color -->
+	<link rel="stylesheet" href="{% static 'demos/store/css/fonts.css' %}" type="text/css" /> <!-- Store Theme Font -->
+	<link rel="stylesheet" href="{% static 'demos/store/store.css' %}" type="text/css" /> <!-- Store Theme Custom CSS -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- / -->
+
+	<!-- Document Title
+	============================================= -->
+		<title>HiFi {% block title %} {% endblock %}</title>
+    	{% block head %} {% endblock %}
+    	{% block style %} {% endblock %}
+
+<!--	toast success -->
+	<style>
+/* file */
+.jq-toast-wrap,.jq-toast-wrap *{margin:0;padding:0}.jq-toast-wrap{display:block;position:fixed;width:350px;pointer-events:none!important;letter-spacing:normal;z-index:9000!important}.jq-toast-wrap.bottom-left{bottom:20px;left:20px}.jq-toast-wrap.bottom-right{bottom:20px;right:40px}.jq-toast-wrap.top-left{top:30px;left:20px}.jq-toast-wrap.top-right{top:20px;right:40px}.jq-toast-single{display:block;width:100%;padding:10px;margin:0 0 5px;border-radius:4px;font-size:12px;font-family:arial,sans-serif;line-height:17px;position:relative;pointer-events:all!important;background-color:#444;color:#fff}.jq-toast-single h2{font-family:arial,sans-serif;font-size:14px;margin:0 0 7px;background:0 0;color:inherit;line-height:inherit;letter-spacing:normal}.jq-toast-single a{color:#eee;text-decoration:none;font-weight:700;border-bottom:1px solid #fff;padding-bottom:3px;font-size:12px}.jq-toast-single ul{margin:0 0 0 15px;background:0 0;padding:0}.jq-toast-single ul li{list-style-type:disc!important;line-height:17px;background:0 0;margin:0;padding:0;letter-spacing:normal}.close-jq-toast-single{position:absolute;top:3px;right:7px;font-size:14px;cursor:pointer}.jq-toast-loader{display:block;position:absolute;top:-2px;height:5px;width:0;left:0;border-radius:5px;background:red}.jq-toast-loaded{width:100%}.jq-has-icon{padding:10px 10px 10px 50px;background-repeat:no-repeat;background-position:10px}.jq-icon-info{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=);background-color:#31708f;color:#d9edf7;border-color:#bce8f1}.jq-icon-warning{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=);background-color:#8a6d3b;color:#fcf8e3;border-color:#faebcc}.jq-icon-error{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=);background-color:#a94442;color:#f2dede;border-color:#ebccd1}.jq-icon-success{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==);color:#dff0d8;background-color:#3c763d;border-color:#d6e9c6}
+
+
+</style>
+<script>
+/* file */
+"function"!=typeof Object.create&&(Object.create=function(t){function o(){}return o.prototype=t,new o}),function(t,o){"use strict";var i={_positionClasses:["bottom-left","bottom-right","top-right","top-left","bottom-center","top-center","mid-center"],_defaultIcons:["success","error","info","warning"],init:function(o){this.prepareOptions(o,t.toast.options),this.process()},prepareOptions:function(o,i){var s={};"string"==typeof o||o instanceof Array?s.text=o:s=o,this.options=t.extend({},i,s)},process:function(){this.setup(),this.addToDom(),this.position(),this.bindToast(),this.animate()},setup:function(){var o="";if(this._toastEl=this._toastEl||t("<div></div>",{"class":"jq-toast-single"}),o+='<span class="jq-toast-loader"></span>',this.options.allowToastClose&&(o+='<span class="close-jq-toast-single">&times;</span>'),this.options.text instanceof Array){this.options.heading&&(o+='<h2 class="jq-toast-heading">'+this.options.heading+"</h2>"),o+='<ul class="jq-toast-ul">';for(var i=0;i<this.options.text.length;i++)o+='<li class="jq-toast-li" id="jq-toast-item-'+i+'">'+this.options.text[i]+"</li>";o+="</ul>"}else this.options.heading&&(o+='<h2 class="jq-toast-heading">'+this.options.heading+"</h2>"),o+=this.options.text;this._toastEl.html(o),this.options.bgColor!==!1&&this._toastEl.css("background-color",this.options.bgColor),this.options.textColor!==!1&&this._toastEl.css("color",this.options.textColor),this.options.textAlign&&this._toastEl.css("text-align",this.options.textAlign),this.options.icon!==!1&&(this._toastEl.addClass("jq-has-icon"),-1!==t.inArray(this.options.icon,this._defaultIcons)&&this._toastEl.addClass("jq-icon-"+this.options.icon))},position:function(){"string"==typeof this.options.position&&-1!==t.inArray(this.options.position,this._positionClasses)?"bottom-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,bottom:20}):"top-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,top:20}):"mid-center"===this.options.position?this._container.css({left:t(o).outerWidth()/2-this._container.outerWidth()/2,top:t(o).outerHeight()/2-this._container.outerHeight()/2}):this._container.addClass(this.options.position):"object"==typeof this.options.position?this._container.css({top:this.options.position.top?this.options.position.top:"auto",bottom:this.options.position.bottom?this.options.position.bottom:"auto",left:this.options.position.left?this.options.position.left:"auto",right:this.options.position.right?this.options.position.right:"auto"}):this._container.addClass("bottom-left")},bindToast:function(){var t=this;this._toastEl.on("afterShown",function(){t.processLoader()}),this._toastEl.find(".close-jq-toast-single").on("click",function(o){o.preventDefault(),"fade"===t.options.showHideTransition?(t._toastEl.trigger("beforeHide"),t._toastEl.fadeOut(function(){t._toastEl.trigger("afterHidden")})):"slide"===t.options.showHideTransition?(t._toastEl.trigger("beforeHide"),t._toastEl.slideUp(function(){t._toastEl.trigger("afterHidden")})):(t._toastEl.trigger("beforeHide"),t._toastEl.hide(function(){t._toastEl.trigger("afterHidden")}))}),"function"==typeof this.options.beforeShow&&this._toastEl.on("beforeShow",function(){t.options.beforeShow()}),"function"==typeof this.options.afterShown&&this._toastEl.on("afterShown",function(){t.options.afterShown()}),"function"==typeof this.options.beforeHide&&this._toastEl.on("beforeHide",function(){t.options.beforeHide()}),"function"==typeof this.options.afterHidden&&this._toastEl.on("afterHidden",function(){t.options.afterHidden()})},addToDom:function(){var o=t(".jq-toast-wrap");if(0===o.length?(o=t("<div></div>",{"class":"jq-toast-wrap"}),t("body").append(o)):(!this.options.stack||isNaN(parseInt(this.options.stack,10)))&&o.empty(),o.find(".jq-toast-single:hidden").remove(),o.append(this._toastEl),this.options.stack&&!isNaN(parseInt(this.options.stack),10)){var i=o.find(".jq-toast-single").length,s=i-this.options.stack;s>0&&t(".jq-toast-wrap").find(".jq-toast-single").slice(0,s).remove()}this._container=o},canAutoHide:function(){return this.options.hideAfter!==!1&&!isNaN(parseInt(this.options.hideAfter,10))},processLoader:function(){if(!this.canAutoHide()||this.options.loader===!1)return!1;var t=this._toastEl.find(".jq-toast-loader"),o=(this.options.hideAfter-400)/1e3+"s",i=this.options.loaderBg,s=t.attr("style")||"";s=s.substring(0,s.indexOf("-webkit-transition")),s+="-webkit-transition: width "+o+" ease-in; -o-transition: width "+o+" ease-in;                       transition: width "+o+" ease-in;                       background-color: "+i+";",t.attr("style",s).addClass("jq-toast-loaded")},animate:function(){var t=this;if(this._toastEl.hide(),this._toastEl.trigger("beforeShow"),"fade"===this.options.showHideTransition.toLowerCase()?this._toastEl.fadeIn(function(){t._toastEl.trigger("afterShown")}):"slide"===this.options.showHideTransition.toLowerCase()?this._toastEl.slideDown(function(){t._toastEl.trigger("afterShown")}):this._toastEl.show(function(){t._toastEl.trigger("afterShown")}),this.canAutoHide()){var t=this;o.setTimeout(function(){"fade"===t.options.showHideTransition.toLowerCase()?(t._toastEl.trigger("beforeHide"),t._toastEl.fadeOut(function(){t._toastEl.trigger("afterHidden")})):"slide"===t.options.showHideTransition.toLowerCase()?(t._toastEl.trigger("beforeHide"),t._toastEl.slideUp(function(){t._toastEl.trigger("afterHidden")})):(t._toastEl.trigger("beforeHide"),t._toastEl.hide(function(){t._toastEl.trigger("afterHidden")}))},this.options.hideAfter)}},reset:function(o){"all"===o?t(".jq-toast-wrap").remove():this._toastEl.remove()},update:function(t){this.prepareOptions(t,this.options),this.setup(),this.bindToast()}};t.toast=function(t){var o=Object.create(i);return o.init(t,this),{reset:function(t){o.reset(t)},update:function(t){o.update(t)}}},t.toast.options={text:"",heading:"",showHideTransition:"fade",allowToastClose:!0,hideAfter:3e3,loader:!0,loaderBg:"#9EC600",stack:5,position:"bottom-left",bgColor:!1,textColor:!1,textAlign:"left",icon:!1,beforeShow:function(){},afterShown:function(){},beforeHide:function(){},afterHidden:function(){}}}(jQuery,window,document);
+
+
+
+/* Starts from here */
+function error(e){
+  $.toast({
+  heading: 'Error',
+  text: e,
+  icon: 'error',
+  loader: true,
+  loaderBg: '#fff',
+  showHideTransition: 'plain',
+  hideAfter: 3000,
+   allowToastClose: false,
+  position: {
+    right: 50,
+    top: 30
+  }
+})
+}
+
+function success(e){
+  $.toast({
+    heading:'Success',
+    text:e,
+    icon:'success',
+    loader: true,
+    loaderBg: '#fff',
+    showHideTransition: 'fade',
+    hideAfter: 3000,
+    allowToastClose: false,
+    position: {
+      right:100,
+      top:30
+    }
+  })
+}
+
+
+</script>
+<!--	-->
+
+<!--	toast success end-->
+
+</head>
+
+<body class="stretched modal-subscribe-bottom">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+		{% for message in messages %}
+				{% if message.tags == 'danger' %}
+					<script>error("{{message}}");</script>
+				{% elif message.tags == 'success' %}
+					<script>success("{{message}}");</script>
+				{% endif %}
+
+      {% endfor %}
+
+		<!-- Modal -->
+		<!--<div class="modal animated fadeInUp fast pr-0" id="modal-subscribe" role="dialog" displayed="false" data-backdrop="static">
+
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close position-relative" data-dismiss="modal" aria-label="Close" style="z-index: 1">
+							<span aria-hidden="true">&times;</span>
+						</button>
+
+						<div class="form-widget mx-auto" data-loader="button" style="padding: 30px">
+
+							<h2 class="font-weight-bold h1 mb-3" style="letter-spacing: -2px">Get Special Discount!</h2>
+							<p>Subscribe to Our Newsletter to get Important News, Amazing Offers & Inside Scoops:</p>
+
+							<div class="form-result"></div>
+
+							<form class="mb-0" id="modal-subscribe-form" action="include/form.php" method="post" enctype="multipart/form-data">
+								<label for="modal-subscribe-form-email">Email Address <span>*</span></label>
+								<input type="email" name="modal-subscribe-form-email" id="modal-subscribe-form-email" class="form-control required rounded-0" placeholder="youremail@address.com">
+
+								<input class="d-none" type="text" id="modal-subscribe-form-botcheck" name="modal-subscribe-form-botcheck" value="" />
+								<button name="modal-subscribe-form-submit" class="button btn-block btn-danger m-0 mt-2" type="submit">Subscribe Now</button>
+
+								<input type="hidden" name="prefix" value="modal-subscribe-form-">
+							</form>
+							<div class="text-center">
+								<small class="text-black-50 mt-1"><em>We never send SPAM to your Email</em></small>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="dark transparent-header floating-header header-size-custom" data-sticky-shrink="false" data-sticky-class="not-dark">
+			<div id="header-wrap">
+				<div class="container-fluid">
+					<div class="header-row justify-content-lg-between">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo" class="mr-lg-0">
+							<a href="{% url 'home' %}" class="standard-logo" data-dark-logo="{% static 'images/logo/hifi3.png' %}"><img src="{% static 'images/logo/hifi3.png' %}" alt="HiFi Logo"></a>
+							<a href="{% url 'home' %}" class="retina-logo" data-dark-logo="{% static 'images/logo/hifi3.png' %}"><img src="{% static 'images/logo/hifi3.png' %}" alt="HiFi Logo"></a>
+						</div><!-- #logo end -->
+
+						<div class="header-misc">
+
+
+							<!-- Top Login
+							============================================= -->
+							<div id="top-account" class="px-4">
+								{% if user.is_authenticated %}
+								<a href="{% url 'profile' %}"> Welcome {{request.user.first_name}}</a>
+								{% else %}
+								<a href="{% url 'login' %}" >Sign up/Login</a>
+								{% endif %}
+							</div><!-- #top-search end -->
+
+							<!-- Top Search
+							============================================= -->
+							<div id="top-search" class="header-misc-icon">
+								<a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+							</div><!-- #top-search end -->
+
+							<!-- Top Cart
+							============================================= -->
+							<div id="top-cart">
+								<a href="{% url 'cart' %}" ><i class="icon-line-bag"></i><span class="top-cart-number">5</span></a>
+								<!--		id="top-cart-trigger" class="position-relative"		-->
+<!--								<div class="top-cart-content">-->
+<!--									<div class="top-cart-title">-->
+<!--										<h4>Shopping Cart</h4>-->
+<!--									</div>-->
+<!--									<div class="top-cart-items">-->
+<!--										<div class="top-cart-item">-->
+<!--											<div class="top-cart-item-image">-->
+<!--												<a href="#"><img src="demos/shop/images/items/featured/5.jpg" alt="Blue Shoulder Bag" /></a>-->
+<!--											</div>-->
+<!--											<div class="top-cart-item-desc">-->
+<!--												<div class="top-cart-item-desc-title">-->
+<!--													<a href="#" class="font-weight-normal">White athletic shoe</a>-->
+<!--													<span class="top-cart-item-price d-block">$35.00</span>-->
+<!--												</div>-->
+<!--												<div class="top-cart-item-quantity font-weight-semibold">x 1</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="top-cart-item">-->
+<!--											<div class="top-cart-item-image">-->
+<!--												<a href="#" class="font-weight-normal"><img src="demos/shop/images/items/featured/1.jpg" alt="Leather Bag" /></a>-->
+<!--											</div>-->
+<!--											<div class="top-cart-item-desc">-->
+<!--												<div class="top-cart-item-desc-title">-->
+<!--													<a href="#" class="font-weight-normal">Round Neck Solid Light Blue Colour T-shirts</a>-->
+<!--													<span class="top-cart-item-price d-block">$12.49</span>-->
+<!--												</div>-->
+<!--												<div class="top-cart-item-quantity font-weight-semibold">x 2</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<div class="top-cart-action">-->
+<!--										<span class="top-checkout-price font-weight-semibold text-dark">$59.98</span>-->
+<!--										<button class="button button-dark button-small m-0">View Cart</button>-->
+<!--									</div>-->
+<!--								</div>-->
+							</div>
+							<!-- #top-cart end -->
+						</div>
+
+						<div id="primary-menu-trigger">
+							<svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu with-arrows">
+
+							<!-- Menu Left -->
+							<ul class="not-dark menu-container">
+								<li class="menu-item "><a class="menu-link" href="{% url 'home' %}"><div>Home</div></a></li>
+								{% for cat,subcat in all_category.items %}
+								<li class="menu-item mega-menu"><a class="menu-link" href="#"><div>{{cat}}</div></a>
+									{% if subcat %}
+									<div class="mega-menu-content mega-menu-style-2">
+										<div class="container">
+											<div class="row">
+													<div class="col-lg-9">
+													{% for subcat_name,subcat_typ in subcat.items %}
+													<ul class="mega-menu-column sub-menu-container  border-left-0">
+
+														<li class="mega-menu-title menu-item"><a class="menu-link" href="#"><div>{{subcat_name}}</div></a>
+															<ul class="sub-menu-container">
+																{% for sub_cat_type in subcat_typ %}
+																	{% for i in sub_cat_type %}
+																<li class="menu-item"><a class="menu-link" href="#"><div>{{i}}</div></a></li>
+																	{% endfor %}
+																{% endfor %}
+															</ul>
+														</li>
+													</ul>
+													{% endfor %}
+													</div>
+
+
+													<ul class="mega-menu-column sub-menu-container col-lg-3 border-left-0">
+													<li class="card p-0 bg-transparent border-0">
+														<img class="card-img-top" src="{{ cat.image.url }}" alt="image {{cat}}">
+													</li>
+												</ul>
+
+											</div>
+										</div>
+									</div>
+									{% endif %}
+								</li><!-- .mega-menu end -->
+								{% endfor %}
+
+								<li class="menu-item mega-menu"><a class="menu-link" href="#"><div>Help</div></a>
+									<div class="mega-menu-content mega-menu-style-2">
+										<div class="container">
+											<div class="row">
+												<ul class="mega-menu-column sub-menu-container col-lg-4 border-left-0">
+													<li class="mega-menu-title menu-item"><a class="menu-link" href="#"><div>Contact Us</div></a>
+														<ul class="sub-menu-container">
+															<li class="menu-item">
+																<div class="widget">
+																	<address>
+																		<strong>Melbourne Store:</strong><br>
+																		795 Folsom Ave, Suite 600<br>
+																		San Francisco, CA 94107<br>
+																	</address>
+																	<abbr title="Phone Number"><strong>Phone:</strong></abbr> (1) 8547 632521<br>
+																	<abbr title="Fax"><strong>Fax:</strong></abbr> (1) 11 4752 1433<br>
+																	<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+																</div>
+															</li>
+														</ul>
+													</li>
+												</ul>
+												<ul class="mega-menu-column sub-menu-container col-lg-4 border-left-0">
+													<li class="mega-menu-title menu-item"><a class="menu-link" href="#"><div>Inquiries</div></a>
+														<ul class="sub-menu-container">
+															<li class="menu-item"><a class="menu-link" href="#"><div>About Us</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Size Chart</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Our Policies</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Exchange/Return</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Payments</div></a></li>
+														</ul>
+													</li>
+												</ul>
+												<ul class="mega-menu-column sub-menu-container col-lg-4 border-left-0">
+													<li class="mega-menu-title menu-item"><a class="menu-link" href="#"><div>FAQs</div></a>
+														<ul class="sub-menu-container">
+															<li class="menu-item"><a class="menu-link" href="#"><div>Q. How do I purchase an item?</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Q. How do I return my items?</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Q. Shipping Charges?</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Q. What is your Delivery time?</div></a></li>
+															<li class="menu-item"><a class="menu-link" href="#"><div>Q. Is there any hidden Charges?</div></a></li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</li><!-- .mega-menu end -->
+								<li class="menu-item current"><a class="menu-link" href="{% url 'contact_us' %}"><div>Contact</div></a></li>
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+						<form class="top-search-form" action="search.html" method="get">
+							<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+						</form>
+
+					</div>
+
+				</div>
+
+			</div>
+			<div class="header-wrap-clone"></div>
+
+		</header><!-- #header end -->
+
+
+		{% block body %} {% endblock %}
+
+		<footer id="footer" class="dark border-top-0">
+
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
+
+					<div class="row clearfix">
+
+						<div class="col-lg-6">
+
+							<div class="widget clearfix">
+								<div class="row">
+
+									<div class="col-4 widget_links">
+										<ul>
+											<li><a href="#">Home</a></li>
+											<li><a href="#">About</a></li>
+											<li><a href="#">FAQs</a></li>
+											<li><a href="#">Support</a></li>
+											<li><a href="#">Contact</a></li>
+										</ul>
+									</div>
+
+									<div class="col-4 widget_links">
+										<ul>
+											<li><a href="#">Shop</a></li>
+											<li><a href="#">Portfolio</a></li>
+											<li><a href="#">Blog</a></li>
+											<li><a href="#">Events</a></li>
+											<li><a href="#">Forums</a></li>
+										</ul>
+									</div>
+
+									<div class="col-4 widget_links">
+										<ul>
+											<li><a href="#">Corporate</a></li>
+											<li><a href="#">Agency</a></li>
+											<li><a href="#">eCommerce</a></li>
+											<li><a href="#">Personal</a></li>
+											<li><a href="#">OnePage</a></li>
+										</ul>
+									</div>
+
+								</div>
+							</div>
+							<div class="d-none d-md-block d-lg-none bottommargin-sm"></div>
+
+						</div>
+
+						<div class="w-100 d-block d-md-block d-lg-none line"></div>
+
+						<div class="col-lg-6">
+
+							<div class="widget subscribe-widget clearfix">
+								<h2 style="color:#f7068c">Subscribe to Our Newsletter</h2>
+								<h4 style="color:#000000;">Get Important Offers and Deals directly to your Email Inbox. <em>We never send spam!</em></h4>
+								<div class="widget-subscribe-form-result"></div>
+								<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+									<div style="margin-bottom: -10px;">
+										<div class="row">
+											<div class="col-md-9" style="margin-bottom:10px;">
+												<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control not-dark required email" placeholder="Enter your Email">
+											</div>
+											<div class="col-md-3" style="margin-bottom:10px;">
+												<button class="btn btn-block btn-success" type="submit">Subscribe</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+
+						</div>
+
+					</div>
+
+
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container text-center text-uppercase">
+
+					Copyrights &copy; 2020 All Rights Reserved by <a href="#" style="color:#f7068c">Rohar Technology.</a>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer>
+
+		<!-- Footer
+		============================================= -->
+
+
+
+		<!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/plugins.min.js' %}"></script>
+
+	<!-- Range Slider Plugin -->
+	<script src="{% static 'js/rangeslider.min.js' %}"></script>
+
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="{% static 'js/functions.js' %}"></script>
+<script>
+		$(document).ready(changeHeaderColor);
+		$(window).on('resize',changeHeaderColor);
+
+		function changeHeaderColor(){
+			if (jQuery(window).width() > 991.98) {
+				jQuery( "#header" ).hover(
+					function() {
+						if (!$(this).hasClass("sticky-header")) {
+							$( this ).addClass( "hover-light" ).removeClass( "dark" );
+							SEMICOLON.header.logo();
+						}
+						$( "#wrapper" ).addClass( "header-overlay" );
+					}, function() {
+						if (!$(this).hasClass("sticky-header")) {
+							$( this ).removeClass( "hover-light" ).addClass( "dark" );
+							SEMICOLON.header.logo();
+						}
+						$( "#wrapper" ).removeClass( "header-overlay" );
+					}
+				);
+			}
+		};
+
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 2000 && $("#modal-subscribe").attr("displayed") === "false") {
+				$('#modal-subscribe').modal('show');
+				$("#modal-subscribe").attr("displayed", "true");
+			}
+		});
+
+		jQuery('#modal-subscribe-form').on( 'formSubmitSuccess', function(){
+			$("#modal-subscribe").addClass("fadeOutDown");
+			setTimeout(function() { $('#modal-subscribe').modal('hide'); }, 400);
+			$("#modal-subscribe").attr("displayed", "false");
+		});
+
+	</script>
+
+
+	{% block js %} {% endblock %}
+
+</body>
+</html>
